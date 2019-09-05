@@ -62,4 +62,4 @@ Para gerar a versão em produção do lado servidor entre no diretório **servid
 ## Executando a aplicação em produção
 Para executar a aplicação em modo produção entre no diretório **servidor** e digite
 
-`node build\app.js`
+`node build/app.js`
