@@ -7,6 +7,9 @@ const estadoInicial = {
 }
 
 function useModelo(estadoInicial) {
+  const [estado, setEstado] = useState(estadoInicial)
+
+  useEffect(() => { setEstado({n1: 10, n2: 20}) }, [])
 
   function setN1(v) {
     let numero = parseInt(v)
@@ -24,12 +27,10 @@ function useModelo(estadoInicial) {
       setEstado({...estado, n2: 0})
   }
   
-  const [estado, setEstado] = useState(estadoInicial)
-
-  useEffect(() => { setEstado({n1: 10, n2: 20}) }, [])
 
   return [ estado, {setN1, setN2} ]
 }
+
 
 
 function App () {
@@ -43,14 +44,13 @@ function App () {
             UFSC - CTC - INE - INE5646 :: Config React
         </div>
         <div className='message-body'>
-          <input type='number' onChange={ev => setN1(ev.target.value)} value={estado.n1}/> +
-          <input type='number' onChange={ev => setN2(ev.target.value)} value={estado.n2}/> =
-          <span>{soma}</span>
+          <input className='input' type='number' onChange={ev => setN1(ev.target.value)} value={estado.n1}/> +
+          <input className='input' type='number' onChange={ev => setN2(ev.target.value)} value={estado.n2}/> =
+          <span className='is-size-3'>{soma}</span>
         </div>
       </div>
     </div>
   )  
 }
-
 
 export default App
